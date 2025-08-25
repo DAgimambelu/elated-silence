@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="am">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moseb Media - የፈጠራ ስራዎች</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #00e1ff;
+        --secondary: #ff5e00;
+        --accent: #673ab7;
+        --dark: #333;
+        --light: #f8f9fa;
+        --text: #8b00fd;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        padding: 15px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 25px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary);
+      }
+
+      /* Hero Section */
+      .hero {
+        background: url("https://i.postimg.cc/RZSVGhW5/Screenshot-20250820-091722-Chrome.png")
+          no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        margin-top: 80px;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .hero-content h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--secondary);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background: #e64a19;
+        transform: translateY(-3px);
+      }
+
+      /* Services Section */
+      .services {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: var(--text);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: var(--light);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .service-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .service-card:hover .service-img img {
+        transform: scale(1.1);
+      }
+
+      .service-content {
+        padding: 20px;
+      }
+
+      .service-content h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      /* Portfolio Section */
+      .portfolio {
+        padding: 80px 0;
+        background: #f1f5f9;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .portfolio-item {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        transform: translateY(0);
+      }
+
+      /* About Section */
+      .about {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        margin-bottom: 15px;
+      }
+
+      .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 80px 0;
+        background: #f1f5f9;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .contact-info h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-details p {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-details i {
+        margin-right: 10px;
+        color: var(--primary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .contact-form textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 40px 0 20px;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 20px;
+        color: var(--secondary);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+        }
+
+        nav ul {
+          margin-top: 15px;
+        }
+
+        nav ul li {
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+
+        .hero-content h2 {
+          font-size: 2rem;
+        }
+
+        .about-content,
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid,
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <img
+            src="https://i.postimg.cc/RZSVGhW5/Screenshot-20250820-091722-Chrome.png"
+            alt="Moseb Media Logo"
+          />
+          <h1>Moseb Media</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home">መነሻ</a></li>
+            <li><a href="#services">አገልግሎቶች</a></li>
+            <li><a href="#portfolio">ስራዎች</a></li>
+            <li><a href="#about">ስለኛ</a></li>
+            <li><a href="#contact">አግኙን</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h2>የፈጠራ ስራዎች ሙያተኛ</h2>
+        <p>
+          በዘመናዊ ሚዲያ የግብይት ገበያ ለግለሰቦች እና ለንግድ ድርጅቶች ወሳኝ አገልግሎቶችን በመስጠት ላይ ያተኮረ
+          ተቋም
+        </p>
+        <a href="#contact" class="btn">ያግኙን</a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>አገልግሎቶቻችን</h2>
+          <p>ከፍተኛ ጥራት ያላቸውን የፈጠራ ስራዎች እና ዲጂታል አገልግሎቶች እንሰጣለን</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://i.postimg.cc/B6MCLXPS/Screenshot-20250820-090914-Chrome.png"
+                alt="Logo Design"
+              />
+            </div>
+            <div class="service-content">
+              <h3>ሎጎ ዲዛይን</h3>
+              <p>ለንግድዎ ተስማሚ እና ፕሮፌሽናል ሎጎዎችን እንዲገኝ እናግዝዎታለን።</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://i.postimg.cc/Xqg6yKcZ/Screenshot-20250821-191827-Chrome.png"
+                alt="YouTube Thumbnail"
+              />
+            </div>
+            <div class="service-content">
+              <h3>የYouTube ኛ አልባምባዎች</h3>
+              <p>የቻናልዎን እድገት ለማሳደግ የሚረዱ ጥሩ አልባምባዎችን እንፈጥራለን።</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://i.postimg.cc/L8Yj9xV8/FB-IMG-1755955382408.jpg"
+                alt="Website Development"
+              />
+            </div>
+            <div class="service-content">
+              <h3>ድር ጣቢያ ልማት</h3>
+              <p>ዘመናዊ እና ተግባራዊ ድር ጣቢያዎችን በReact እና Node.js እንገነባለን።</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://i.postimg.cc/J0YBmXDX/Screenshot-20250820-090024-Chrome.png"
+                alt="Banner Design"
+              />
+            </div>
+            <div class="service-content">
+              <h3>ባነር ዲዛይን</h3>
+              <p>ለማንኛውም ዓይነት ንግድ የሚጠቅሙ ባነሮችን እንነዳጃለን።</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://i.postimg.cc/G2hq6s5v/FB-IMG-1755954899341.jpg"
+                alt="App Development"
+              />
+            </div>
+            <div class="service-content">
+              <h3>አፕልኬሽን ልማት</h3>
+              <p>ለሞባይል ስልኮች እና ኮምፒውተሮች አፕልኬሽኖችን እንገነባለን።</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://i.postimg.cc/RZSVGhW5/Screenshot-20250820-091722-Chrome.png"
+                alt="Social Media Management"
+              />
+            </div>
+            <div class="service-content">
+              <h3>የማህበራዊ ሚዲያ አስተዳደር</h3>
+              <p>የማህበራዊ ሚዲያ አካውንቶችዎን እናስተዳድራለን እና እድገት እናግዝዎታለን።</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <h2>የተሰሩ ስራዎች</h2>
+          <p>ከቀድሞ የሰራናቸው ስራዎች አንዳንዶችን ይመልከቱ</p>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img
+              src="https://i.postimg.cc/B6MCLXPS/Screenshot-20250820-090914-Chrome.png"
+              alt="Logo Design Example"
+            />
+            <div class="portfolio-overlay">
+              <h3>ሎጎ ዲዛይን</h3>
+              <p>ለአንድ የቴክኖሎጂ ኩባንያ የተሰራ ሎጎ</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://i.postimg.cc/Xqg6yKcZ/Screenshot-20250821-191827-Chrome.png"
+              alt="YouTube Thumbnail Example"
+            />
+            <div class="portfolio-overlay">
+              <h3>የYouTube አልባምባ</h3>
+              <p>ለአንድ የጨዋታ ቻናል የተሰራ አልባምባ</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://i.postimg.cc/L8Yj9xV8/FB-IMG-1755955382408.jpg"
+              alt="Website Example"
+            />
+            <div class="portfolio-overlay">
+              <h3>ድር ጣቢያ ልማት</h3>
+              <p>ለአንድ ሬስቶራንት የተሰራ ድር ጣቢያ</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://i.postimg.cc/J0YBmXDX/Screenshot-20250820-090024-Chrome.png"
+              alt="Banner Example"
+            />
+            <div class="portfolio-overlay">
+              <h3>ባነር ዲዛይን</h3>
+              <p>ለአንድ የግብይት ማእከል የተሰራ ባነር</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://i.postimg.cc/G2hq6s5v/FB-IMG-1755954899341.jpg"
+              alt="App Example"
+            />
+            <div class="portfolio-overlay">
+              <h3>አፕልኬሽን ልማት</h3>
+              <p>ለአንድ የጥረት አፕልኬሽን የተሰራ ዲዛይን</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://i.postimg.cc/RZSVGhW5/Screenshot-20250820-091722-Chrome.png"
+              alt="Social Media Example"
+            />
+            <div class="portfolio-overlay">
+              <h3>የማህበራዊ ሚዲያ</h3>
+              <p>ለአንድ ብራንድ የተሰራ የማህበራዊ ሚዲያ ኮንቴንት</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>ስለ ኛ</h2>
+          <p>የ Moseb Media ታሪክ እና ዓላማ</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h2>የእኛ ታሪክ</h2>
+            <p>
+              Moseb Media በዘመናዊ ሚዲያ የግብይት ገበያ ለግለሰቦች እና ለንግድ ድርጅቶች ወሳኝ አገልግሎቶችን
+              በመስጠት ላይ ያተኮረ ተቋም ነው።
+            </p>
+            <p>
+              የእኛ ዋና ዓላማ "የደንበኞቻችንን ፍላጎት በመረዳት፣በእንዲህ ዓይነቱ ዓለም ውስጥ እንዲታዩ እና
+              እንዲታወቁ እናደርጋለን። የሶሻል ሚዲያ ስልቶችን በመጠቀም የድርጅታቸውን የምርት ስም (ብራንድ)
+              በማጠናከር፣ ትርፋማነታቸውን በማሳደግ እና የገበያ ተደራሽነታቸውን በማስፋት ታዋቂ እንዲሆኑ ማድረግ ነው።
+            </p>
+            <p>
+              ከሎጎ ዲዛይን እስከ ድር ጣቢያ ልማት፣ ከዩቲዩብ አልባምባዎች እስከ ሞባይል አፕልኬሽኖች ድረስ ሁሉንም
+              ዓይነት የዲጂታል አገልግሎቶች እንሰጣለን።
+            </p>
+          </div>
+          <div class="about-image">
+            <img
+              src="https://i.postimg.cc/RZSVGhW5/Screenshot-20250820-091722-Chrome.png"
+              alt="Moseb Media Team"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>አግኙን</h2>
+          <p>ለበለጠ መረጃ ያነጋግሩን</p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>የእውቂያ መረጃ</h3>
+            <div class="contact-details">
+              <p><i class="fas fa-phone"></i> 0915291705</p>
+              <p><i class="fas fa-envelope"></i> dagimambelaragawu@gmail.com</p>
+              <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+            </div>
+            <h3>ማህበራዊ ሚዲያ</h3>
+            <div class="social-links">
+              <a href="https://www.youtube.com/@deltalpha1912" target="_blank"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://t.me/deltaalpha19" target="_blank"
+                ><i class="fab fa-telegram"></i
+              ></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <input type="text" placeholder="ሙሁር ስም" required />
+              <input type="email" placeholder="ኢሜይል" required />
+              <input type="tel" placeholder="ስልክ ቁጥር" />
+              <textarea placeholder="መልእክት" required></textarea>
+              <button type="submit" class="btn">መልእክት ይላኩ</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Moseb Media</h3>
+            <p>የፈጠራ ስራዎች ሙያተኛ</p>
+          </div>
+          <div class="footer-section">
+            <h3>አገልግሎቶች</h3>
+            <ul>
+              <li>ሎጎ ዲዛይን</li>
+              <li>ድር ጣቢያ ልማት</li>
+              <li>ዩቲዩብ አልባምባዎች</li>
+              <li>አፕልኬሽን ልማት</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>ያግኙን</h3>
+            <p>0915291705</p>
+            <p>dagimambelaragawu@gmail.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Moseb Media. ሁሉም መብቶች የተጠበቁ ናቸው</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll("nav a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Form submission handling
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("መልእክትዎ ተቀብሎአል! በቅርቡ እንገናኝዎታለን።");
+          this.reset();
+        });
+
+      // Add animation on scroll
+      window.addEventListener("scroll", function () {
+        const elements = document.querySelectorAll(
+          ".service-card, .portfolio-item, .about-text, .about-image"
+        );
+
+        elements.forEach((element) => {
+          const position = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+
+          if (position < screenPosition) {
+            element.style.opacity = 1;
+            element.style.transform = "translateY(0)";
+          }
+        });
+      });
+
+      // Initialize elements for animation
+      document
+        .querySelectorAll(
+          ".service-card, .portfolio-item, .about-text, .about-image"
+        )
+        .forEach((element) => {
+          element.style.opacity = 0;
+          element.style.transform = "translateY(20px)";
+          element.style.transition = "all 0.5s ease";
+        });
+
+      // Trigger scroll event on load to animate visible elements
+      window.dispatchEvent(new Event("scroll"));
+    </script>
+  </body>
+</html>
